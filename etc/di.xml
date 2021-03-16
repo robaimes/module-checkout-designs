@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Aimes\CheckoutLayout\Model\Config\Source\CheckoutLayout">
+        <arguments>
+            <argument name="layouts" xsi:type="array">
+                <item name="3_step_checkout" xsi:type="array">
+                    <item name="label" xsi:type="string" translatable="true">3 Step Checkout</item>
+                    <item name="layout_handle" xsi:type="string">checkout_design_3_step</item>
+                    <item name="layout_processor" xsi:type="object">Aimes\CheckoutLayout\Model\Checkout\Layout\Processor3Step</item>
+                    <item name="config_provider" xsi:type="object">Aimes\CheckoutLayout\Model\Checkout\Provider\ConfigProvider3Step</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>
