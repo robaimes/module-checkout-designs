@@ -31,6 +31,7 @@ class LayoutProcessor implements LayoutProcessorInterface
 
         if ($design) {
             $options = $this->layoutOptions->toOptionArray();
+            
             if (isset($options[$design])) {
                 $options[$design]['layout_processor']->process($jsLayout);
             }
