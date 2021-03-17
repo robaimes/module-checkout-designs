@@ -47,11 +47,14 @@ Potential useful scenarios:
 ```
 
 #### What's going on?
-* Designs must implement `\Aimes\CheckoutDesigns\Api\CheckoutDesignInterface`.
-* Objects in `layoutProcessors` must implement `\Magento\Checkout\Block\Checkout\LayoutProcessorInterface`
-    * LayoutProcessors declared here will only be processed when the associated design is rendered
-* Objects in `configProviders` must implement `\Magento\Checkout\Model\ConfigProviderInterface`
-    * ConfigProviders declared here will only be processed when the associated design is rendered
+* Designs must implement `\Aimes\CheckoutDesigns\Api\CheckoutDesignInterface` 
+    * `code` is a unique identifier for your design
+    * `name` is the frontend / human friendly label
+    * `layoutHandle` is the layout handle that will be included on the page. The above would include `my_design_layout_handle.xml`
+    * `layoutProcessors` is an array of objects that will only be processed when the associated design is utilised
+        * Items must implement `\Magento\Checkout\Block\Checkout\LayoutProcessorInterface`
+    * `configProviders` is an array of objects that will only be processed when the associated design is utilised
+        * Items must implement `\Magento\Checkout\Model\ConfigProviderInterface`
     
 ### Step 2: Add your design to the available options
 `di.xml`
@@ -68,5 +71,8 @@ Potential useful scenarios:
 ```
     
 ### Step 3: Select design
-* `Sales -> Checkout -> Design / Layout -> Checkout Design`
-    * Currently, this supports changes per store. Further improvements can be made in the future
+Your design should now show up as an option in the system configuration below:
+
+`Sales -> Checkout -> Design / Layout -> Checkout Design`
+
+Currently, this supports changes per website or per store, but further improvements can be made in the future.
