@@ -1,12 +1,19 @@
 <?xml version="1.0"?>
-
+<!--
+/**
+ * Copyright © Rob Aimes - https://aimes.dev/
+ * https://github.com/robaimes
+ */
+ -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="before.body.end">
-            <block class="Magento\Framework\View\Element\Text" name="aimes.trest">
+            <block class="Magento\Framework\View\Element\Text" name="aimes.one.step.test.element">
                 <arguments>
-                    <argument name="text" xsi:type="string">TEST STRING FROM THREE STEP</argument>
+                    <argument name="text" xsi:type="string">
+                        New element added via new design one_step_checkout
+                    </argument>
                 </arguments>
             </block>
         </referenceContainer>
@@ -24,7 +31,9 @@
                                                     <item name="children" xsi:type="array">
                                                         <item name="customer-email" xsi:type="array">
                                                             <item name="tooltip" xsi:type="array">
-                                                                <item name="description" xsi:type="string" translate="true">TESTING COMPONENT OVERRIDES</item>
+                                                                <item name="description" xsi:type="string" translate="true">
+                                                                    You can even override component data (go figure!)
+                                                                </item>
                                                             </item>
                                                         </item>
                                                     </item>

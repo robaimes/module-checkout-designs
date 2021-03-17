@@ -1,5 +1,15 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Rob Aimes - https://aimes.dev/
+ * https://github.com/robaimes
+ */
+ -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Aimes_CheckoutLayout"/>
+    <module name="Aimes_CheckoutDesigns">
+        <sequence>
+            <module name="Magento_Checkout" />
+        </sequence>
+    </module>
 </config>

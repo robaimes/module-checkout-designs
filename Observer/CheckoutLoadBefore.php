@@ -1,31 +1,44 @@
 <?php
+/**
+ * Copyright © Rob Aimes - https://aimes.dev/
+ * https://github.com/robaimes
+ */
 
-namespace Aimes\CheckoutLayout\Observer;
+namespace Aimes\CheckoutDesigns\Observer;
 
-use Aimes\CheckoutLayout\Scope\Config;
+use Aimes\CheckoutDesigns\Scope\Config;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 
 class CheckoutLoadBefore implements ObserverInterface
 {
-    private Config $config;
+    /** @var Config */
+    private $config;
 
+    /**
+     * @param Config $config
+     */
     public function __construct(
         Config $config
     ) {
         $this->config = $config;
     }
 
-    public function execute(Observer $observer)
+    /**
+     * @param Observer $observer
+     * @return void
+     */
+    public function execute(Observer $observer): void
     {
         $route = $observer->getEvent()->getFullActionName();
 
         if ($route === 'checkout_index_index') {
             if ($design = $this->config->getDesign()) {
-                $observer->getEvent()->getLayout()->getUpdate()->addHandle($design);
+                $observer->getEvent()
+                    ->getLayout()
+                    ->getUpdate()
+                    ->addHandle($design->getLayoutHandle());
             }
         }
-
-        return $this;
     }
 }

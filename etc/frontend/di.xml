@@ -1,17 +1,30 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Rob Aimes - https://aimes.dev/
+ * https://github.com/robaimes
+ */
+ -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Process config providers of the current selected design -->
     <type name="Magento\Checkout\Model\CompositeConfigProvider">
         <arguments>
             <argument name="configProviders" xsi:type="array">
-                <item name="aimesConfig" xsi:type="object">Aimes\CheckoutLayout\Model\Checkout\ConfigProvider</item>
+                <item name="aimesConfig" xsi:type="object">
+                    Aimes\CheckoutDesigns\Model\Checkout\ConfigProvider
+                </item>
             </argument>
         </arguments>
     </type>
+
+    <!-- Process the layout processors of the current selected design -->
     <type name="Magento\Checkout\Block\Onepage">
         <arguments>
             <argument name="layoutProcessors" xsi:type="array">
-                <item name="aimesLayout" xsi:type="object">Aimes\CheckoutLayout\Model\Checkout\LayoutProcessor</item>
+                <item name="aimesLayout" xsi:type="object">
+                    Aimes\CheckoutDesigns\Model\Checkout\LayoutProcessor
+                </item>
             </argument>
         </arguments>
     </type>

@@ -1,22 +1,33 @@
 <?php
+/**
+ * Copyright © Rob Aimes - https://aimes.dev/
+ * https://github.com/robaimes
+ */
 
-namespace Aimes\CheckoutLayout\Model\Checkout;
+namespace Aimes\CheckoutDesigns\Model\Checkout;
 
-use Aimes\CheckoutLayout\Model\Config\Source\CheckoutLayout as LayoutOptions;
-use Aimes\CheckoutLayout\Scope\Config;
+use Aimes\CheckoutDesigns\Model\Config\Source\CheckoutDesigns;
+use Aimes\CheckoutDesigns\Scope\Config;
 use Magento\Checkout\Model\ConfigProviderInterface;
 
 class ConfigProvider implements ConfigProviderInterface
 {
+    /** @var Config  */
     private Config $config;
-    private LayoutOptions $layoutOptions;
 
+    /** @var CheckoutDesigns  */
+    private $checkoutDesigns;
+
+    /**
+     * @param Config $config
+     * @param CheckoutDesigns $checkoutDesigns
+     */
     public function __construct(
         Config $config,
-        LayoutOptions $layoutOptions
+        CheckoutDesigns $checkoutDesigns
     ) {
         $this->config = $config;
-        $this->layoutOptions = $layoutOptions;
+        $this->checkoutDesigns = $checkoutDesigns;
     }
 
     public function getConfig(): array
@@ -25,10 +36,10 @@ class ConfigProvider implements ConfigProviderInterface
         $design = $this->config->getDesign();
 
         if ($design) {
-            $options = $this->layoutOptions->toOptionArray();
-
-            if (isset($options[$design])) {
-                $config = $options[$design]['config_provider']->getConfig();
+            foreach ($design->getConfigProviders() as $configProvider) {
+                if ($configProvider instanceof ConfigProviderInterface) {
+                    $config = array_merge_recursive($config, $configProvider->getConfig());
+                }
             }
         }
 

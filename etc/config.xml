@@ -1,10 +1,15 @@
 <?xml version="1.0"?>
-
+<!--
+/**
+ * Copyright © Rob Aimes - https://aimes.dev/
+ * https://github.com/robaimes
+ */
+ -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <checkout>
             <design>
-                <design>0</design>
+                <design>default</design>
             </design>
         </checkout>
     </default>

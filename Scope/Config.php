@@ -1,7 +1,13 @@
 <?php
+/**
+ * Copyright © Rob Aimes - https://aimes.dev/
+ * https://github.com/robaimes
+ */
 
-namespace Aimes\CheckoutLayout\Scope;
+namespace Aimes\CheckoutDesigns\Scope;
 
+use Aimes\CheckoutDesigns\Api\CheckoutDesignInterface;
+use Aimes\CheckoutDesigns\Model\Config\Source\CheckoutDesigns;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Store\Model\ScopeInterface;
 
@@ -9,19 +15,30 @@ class Config
 {
     const XML_PATH_CHECKOUT_DESIGN = 'checkout/design/design';
 
-    private ScopeConfigInterface $scopeConfig;
+    /** @var ScopeConfigInterface */
+    private $scopeConfig;
+
+    /** @var CheckoutDesigns */
+    private $checkoutDesigns;
 
     public function __construct(
-        ScopeConfigInterface $scopeConfig
+        ScopeConfigInterface $scopeConfig,
+        CheckoutDesigns $checkoutDesigns
     ) {
         $this->scopeConfig = $scopeConfig;
+        $this->checkoutDesigns = $checkoutDesigns;
     }
 
-    public function getDesign()
+    /**
+     * @return CheckoutDesignInterface|null
+     */
+    public function getDesign(): ?CheckoutDesignInterface
     {
-        return $this->scopeConfig->getValue(
+        $code = $this->scopeConfig->getValue(
             self::XML_PATH_CHECKOUT_DESIGN,
             ScopeInterface::SCOPE_STORE
         );
+
+        return $this->checkoutDesigns->getDesignByCode($code);
     }
 }

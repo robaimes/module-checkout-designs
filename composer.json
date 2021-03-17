@@ -15,7 +15,7 @@
       "registration.php"
     ],
     "psr-4": {
-      "Aimes\\CheckoutLayout\\": ""
+      "Aimes\\CheckoutDesigns\\": ""
     }
   }
 }

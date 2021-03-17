@@ -1,39 +1,47 @@
 <?php
 /**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
+ * Copyright © Rob Aimes - https://aimes.dev/
+ * https://github.com/robaimes
  */
-namespace Aimes\CheckoutLayout\Model\Checkout;
 
-use Aimes\CheckoutLayout\Scope\Config;
+namespace Aimes\CheckoutDesigns\Model\Checkout;
+
+use Aimes\CheckoutDesigns\Scope\Config;
 use Magento\Checkout\Block\Checkout\LayoutProcessorInterface;
-use Aimes\CheckoutLayout\Model\Config\Source\CheckoutLayout as LayoutOptions;
+use Aimes\CheckoutDesigns\Model\Config\Source\CheckoutDesigns;
 
 class LayoutProcessor implements LayoutProcessorInterface
 {
-    private Config $config;
-    private LayoutOptions $layoutOptions;
+    /** @var Config */
+    private $config;
 
+    /** @var CheckoutDesigns */
+    private $checkoutDesigns;
+
+    /**
+     * @param Config $config
+     * @param CheckoutDesigns $checkoutDesigns
+     */
     public function __construct(
         Config $config,
-        LayoutOptions $layoutOptions
+        CheckoutDesigns $checkoutDesigns
     ) {
         $this->config = $config;
-        $this->layoutOptions = $layoutOptions;
+        $this->checkoutDesigns = $checkoutDesigns;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function process($jsLayout)
+    public function process($jsLayout): array
     {
         $design = $this->config->getDesign();
 
         if ($design) {
-            $options = $this->layoutOptions->toOptionArray();
-            
-            if (isset($options[$design])) {
-                $options[$design]['layout_processor']->process($jsLayout);
+            foreach ($design->getLayoutProcessors() as $layoutProcessor) {
+                if ($layoutProcessor instanceof LayoutProcessorInterface) {
+                    $jsLayout = $layoutProcessor->process($jsLayout);
+                }
             }
         }
 

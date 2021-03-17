@@ -1,4 +1,10 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Rob Aimes - https://aimes.dev/
+ * https://github.com/robaimes
+ */
+ -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
     <!--
@@ -8,6 +14,6 @@
      -->
     <event name="layout_load_before">
         <observer name="load_custom_checkout_layout"
-                  instance="Aimes\CheckoutLayout\Observer\CheckoutLoadBefore" />
+                  instance="Aimes\CheckoutDesigns\Observer\CheckoutLoadBefore" />
     </event>
 </config>
