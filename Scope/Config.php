@@ -15,12 +15,20 @@ class Config
 {
     const XML_PATH_CHECKOUT_DESIGN = 'checkout/design/design';
 
-    /** @var ScopeConfigInterface */
+    /**
+     * @var ScopeConfigInterface
+     */
     private $scopeConfig;
 
-    /** @var CheckoutDesigns */
+    /**
+     * @var CheckoutDesigns
+     */
     private $checkoutDesigns;
 
+    /**
+     * @param ScopeConfigInterface $scopeConfig
+     * @param CheckoutDesigns $checkoutDesigns
+     */
     public function __construct(
         ScopeConfigInterface $scopeConfig,
         CheckoutDesigns $checkoutDesigns

@@ -11,6 +11,10 @@
      Unfortunately, we can't use a plugin due to setTitle() call in the checkout controller
      This internally calls $layoutUpdate->build() after which we can no longer add handles
      To work around this we're using this event
+
+     See:
+      * Magento\Checkout\Controller\Index\Index::L48
+      * Magento\Framework\View\Page\Config::getTitle
      -->
     <event name="layout_load_before">
         <observer name="load_custom_checkout_layout"

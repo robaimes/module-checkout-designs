@@ -10,7 +10,7 @@
     <system>
         <section id="checkout">
             <group id="design"
-                   translate="label"
+                   translate="label comment"
                    type="text"
                    sortOrder="15"
                    showInDefault="1"
@@ -25,9 +25,37 @@
                        showInWebsite="1"
                        showInStore="1"
                        canRestore="1">
-                    <label>Checkout Design</label>
+                    <label>Default Checkout Design</label>
                     <source_model>Aimes\CheckoutDesigns\Model\Config\Source\CheckoutDesigns</source_model>
                     <comment>Please consult your developer before changing this value</comment>
+                </field>
+                <field id="enable_customer_groups"
+                       translate="label comment"
+                       type="select"
+                       sortOrder="20"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1"
+                       canRestore="1">
+                    <label>Customer Group Assignment</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                    <comment>Allow assignment of specific designs per customer group</comment>
+                </field>
+                <field id="customer_group_mapping"
+                       translate="label comment"
+                       type="select"
+                       sortOrder="30"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1"
+                       canRestore="1">
+                    <label>Customer Group Mapping</label>
+                    <depends>
+                        <field id="enable_customer_groups">1</field>
+                    </depends>
+                    <frontend_model>Aimes\CheckoutDesigns\Block\Adminhtml\Form\Field\DesignCustomerGroupMapping</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment>Customer groups that are not mapped here will use the 'Default Checkout Design' configuration value set above</comment>
                 </field>
             </group>
         </section>
