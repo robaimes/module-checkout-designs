@@ -57,9 +57,10 @@ class CheckoutLoadBefore implements ObserverInterface
     private function getDesign(): ?CheckoutDesignInterface
     {
         $groupMapping = $this->config->getCustomerGroupMapping();
-        $currentCustomerGroup = $this->customerSession->getCustomerGroupId();
 
-        if ($groupMapping !== null && $currentCustomerGroup !== null) {
+        if ($groupMapping !== null) {
+            $currentCustomerGroup = $this->customerSession->getCustomerGroupId();
+
             if (isset($groupMapping[$currentCustomerGroup])) {
                 return $this->config->getDesign($groupMapping[$currentCustomerGroup]);
             }

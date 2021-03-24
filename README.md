@@ -75,4 +75,5 @@ Your design should now show up as an option in the system configuration below:
 
 `Sales -> Checkout -> Design / Layout -> Checkout Design`
 
-Currently, this supports changes per website or per store, but further improvements can be made in the future.
+* Select the default design
+* Select specific designs per customer groups
