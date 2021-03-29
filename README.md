@@ -1,23 +1,39 @@
-# Aimes_CheckoutDesigns
+# Aimes_CheckoutDesigns ![magento-badge]
 
-Proof of concept module to provide the ability to add custom checkout layout updates, and switch via system configuration.
+## Features
 
-The main idea is the ability to have different layouts for the checkout that can be managed in separate layout files. Currently these all implement / extend from `checkout_index_index.xml`
+> Please note: This module is currently still considered a proof of concept.
 
-Potential useful scenarios:
+This module provides the ability to change checkout page designs/layout similar to [page specific selectable layouts][page-layouts].
 
-* AB Testing checkout changes and redesigns
-    * Collect data per design
-* Provide different checkout experience on different storefronts
-* Provide different checkout experience to certain user groups
-* Provide different checkout experience depending on other criteria...
+The module currently provides the following functionality:
 
-## Support
+* Provide a different checkout user experience per store
+* Provide a different checkout user experience per customer group
 
-**Currently this is a proof of concept and no support will be provided if you decide to use this in its current state.**
+This in turn will allow you to do things such as, but not limited to, the following:
 
-* This module has been created and semi-tested on Magento 2.4.2
-* This module _should_ be compatible with Magento 2.3.x, but I make no guarantee
+> Please note: These are only examples of functionality that this module makes possible. This module itself does not provide any additional functionality or checkout designs and serves only as a base for other modules. For an example module, please see [`Aimes_CheckoutDesigns`][example-module]
+
+* AB Testing any checkout changes
+* Something broken or users can't checkout with a specific design? Select a different design or the default Magento checkout so that users can still checkout until you can deploy your fixed code.
+* Collect different data per design to help determine any issues
+    * Track the different drop-off points
+    * Track conversion rates
+
+Any feature requests and/or pull requests are welcomed!
+
+## Requirements
+
+This module is compatible with Magento 2.3.x and Magento 2.4.x
+
+## Installation
+
+Please install this module via Composer
+
+* `composer require aimes/module-checkout-designs`
+* `bin/magento module:enable Aimes_CheckoutDesigns`
+* `bin/magento setup:upgrade`
 
 ## Usage
 
@@ -46,7 +62,8 @@ Potential useful scenarios:
 </virtualType>
 ```
 
-#### What's going on?
+#### Explanation
+
 * Designs must implement `\Aimes\CheckoutDesigns\Api\CheckoutDesignInterface` 
     * `code` is a unique identifier for your design
     * `name` is the frontend / human friendly label
@@ -55,6 +72,9 @@ Potential useful scenarios:
         * Items must implement `\Magento\Checkout\Block\Checkout\LayoutProcessorInterface`
     * `configProviders` is an array of objects that will only be processed when the associated design is utilised
         * Items must implement `\Magento\Checkout\Model\ConfigProviderInterface`
+    
+#### Example code
+For working code examples, please refer to [`Aimes_CheckoutDesigns`][example-module]. This package can also be installed.
     
 ### Step 2: Add your design to the available options
 `di.xml`
@@ -77,3 +97,12 @@ Your design should now show up as an option in the system configuration below:
 
 * Select the default design
 * Select specific designs per customer groups
+
+## Licence
+[GPLv3][gpl] © [Rob Aimes][author]
+
+[magento-badge]:https://img.shields.io/badge/magento-2.3.x%20%7C%202.4.x-orange.svg?logo=magento
+[page-layouts]:https://devdocs.magento.com/guides/v2.4/frontend-dev-guide/layouts/xml-manage.html#create-cms-pageproductcategory-specific-selectable-layouts
+[example-module]:https://github.com/robaimes/module-checkout-designs-example
+[gpl]:https://www.gnu.org/licenses/gpl-3.0.en.html
+[author]:https://aimes.dev/

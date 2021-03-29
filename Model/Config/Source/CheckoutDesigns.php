@@ -33,7 +33,7 @@ class CheckoutDesigns implements OptionSourceInterface
             'value' => 'default',
         ]];
 
-        foreach ($this->designs as $key => $design) {
+        foreach ($this->designs as $design) {
             if ($design instanceof CheckoutDesignInterface) {
                 array_push($options, [
                     'label' => $design->getName(),

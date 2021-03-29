@@ -6,9 +6,9 @@
 
 namespace Aimes\CheckoutDesigns\Model\Checkout;
 
+use Aimes\CheckoutDesigns\Model\Config\Source\CheckoutDesigns;
 use Aimes\CheckoutDesigns\Scope\Config;
 use Magento\Checkout\Block\Checkout\LayoutProcessorInterface;
-use Aimes\CheckoutDesigns\Model\Config\Source\CheckoutDesigns;
 
 class LayoutProcessor implements LayoutProcessorInterface
 {
