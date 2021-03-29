@@ -9,7 +9,7 @@
         "aimes/module-checkout-designs-example": "Provides code examples to utilise this package"
     },
     "license": [
-        "Proprietary"
+        "GPL-3.0-or-later"
     ],
     "autoload": {
         "files": [
