@@ -1,20 +1,22 @@
 {
-  "name": "aimes/module-checkout-designs",
-  "description": "Swap checkout layouts via system configuration, or conditions",
-  "type": "magento2-module",
-  "require": {
-    "magento/framework": "*",
-    "magento/module-checkout": "100.4.*"
-  },
-  "license": [
-    "Proprietary"
-  ],
-  "autoload": {
-    "files": [
-      "registration.php"
+    "name": "aimes/module-checkout-designs",
+    "description": "Swap checkout layouts via system configuration, or conditions",
+    "type": "magento2-module",
+    "require": {
+        "magento/module-checkout": "^100.3|^100.4"
+    },
+    "suggest": {
+        "aimes/module-checkout-designs-example": "Provides code examples to utilise this package"
+    },
+    "license": [
+        "Proprietary"
     ],
-    "psr-4": {
-      "Aimes\\CheckoutDesigns\\": ""
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Aimes\\CheckoutDesigns\\": ""
+        }
     }
-  }
 }
