@@ -1,6 +1,6 @@
 # Aimes_CheckoutDesigns
 
-![magento-badge]
+!["Supported Magento Version"][magento-badge]
 
 ## Features
 
@@ -12,6 +12,12 @@ The module currently provides the following functionality:
 
 * Provide a different checkout user experience per store
 * Provide a different checkout user experience per customer group
+
+<details>
+  <summary>Example</summary>
+   
+  ![Example Config](https://user-images.githubusercontent.com/4225347/112895353-ec7ccb00-90d4-11eb-937f-cd54636fbf19.png)
+</details>
 
 This in turn will allow you to do things such as, but not limited to, the following:
 
