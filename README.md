@@ -1,10 +1,10 @@
-# Aimes_CheckoutDesigns [![magento-version][magento-badge][magento-link]]
+# Aimes_CheckoutDesigns ![magento-badge]
 
 ## Features
 
 > Please note: This module is currently still considered a proof of concept.
 
-This module provides the ability to change checkout page designs/layout in a similar fashion to [page specific selectable layouts](https://devdocs.magento.com/guides/v2.4/frontend-dev-guide/layouts/xml-manage.html#create-cms-pageproductcategory-specific-selectable-layouts).
+This module provides the ability to change checkout page designs/layout similar to [page specific selectable layouts][page-layouts].
 
 The module currently provides the following functionality:
 
@@ -13,7 +13,7 @@ The module currently provides the following functionality:
 
 This in turn will allow you to do things such as, but not limited to, the following:
 
-> Please note: These are only examples of functionality that this module makes possible. This module itself does not provide any additional functionality or checkout designs and serves only as a base for other modules. For an example module, please see [`Aimes_CheckoutDesignsExample`](https://github.com/robaimes/module-checkout-designs-example)
+> Please note: These are only examples of functionality that this module makes possible. This module itself does not provide any additional functionality or checkout designs and serves only as a base for other modules. For an example module, please see [`Aimes_CheckoutDesigns`][example-module]
 
 * AB Testing any checkout changes
 * Something broken or users can't checkout with a specific design? Select a different design or the default Magento checkout so that users can still checkout until you can deploy your fixed code.
@@ -74,7 +74,7 @@ Please install this module via Composer
         * Items must implement `\Magento\Checkout\Model\ConfigProviderInterface`
     
 #### Example code
-For working code examples, please refer to [`Aimes_CheckoutDesignsExample`](https://github.com/robaimes/module-checkout-designs-example). This package can also be installed.
+For working code examples, please refer to [`Aimes_CheckoutDesigns`][example-module]. This package can also be installed.
     
 ### Step 2: Add your design to the available options
 `di.xml`
@@ -99,10 +99,10 @@ Your design should now show up as an option in the system configuration below:
 * Select specific designs per customer groups
 
 ## Licence
-[GPLv3][gpl-url] © Rob Aimes
+[GPLv3][gpl] © [Rob Aimes][author]
 
-
-[gpl-url]:https://www.gnu.org/licenses/gpl-3.0.en.html
-[magento-version]:2.3.x|2.4.x
 [magento-badge]:https://img.shields.io/badge/magento-2.3.x%20%7C%202.4.x-orange.svg?logo=magento
-[magento-url]:https://devdocs.magento.com/:w
+[page-layouts]:https://devdocs.magento.com/guides/v2.4/frontend-dev-guide/layouts/xml-manage.html#create-cms-pageproductcategory-specific-selectable-layouts
+[example-module]:https://github.com/robaimes/module-checkout-designs-example
+[gpl]:https://www.gnu.org/licenses/gpl-3.0.en.html
+[author]:https://aimes.dev/
