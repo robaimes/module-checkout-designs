@@ -1,4 +1,4 @@
-# Aimes_CheckoutDesigns [![magento-badge][magento-link]]
+# Aimes_CheckoutDesigns [![magento-version][magento-badge][magento-link]]
 
 ## Features
 
@@ -103,5 +103,6 @@ Your design should now show up as an option in the system configuration below:
 
 
 [gpl-url]:https://www.gnu.org/licenses/gpl-3.0.en.html
+[magento-version]:2.3.x|2.4.x
 [magento-badge]:https://img.shields.io/badge/magento-2.3.x%20%7C%202.4.x-orange.svg?logo=magento
 [magento-url]:https://devdocs.magento.com/:w
