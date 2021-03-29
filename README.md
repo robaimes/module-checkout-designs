@@ -101,7 +101,7 @@ Your design should now show up as an option in the system configuration below:
 ## Licence
 [GPLv3][gpl] © [Rob Aimes][author]
 
-[magento-badge]:https://img.shields.io/badge/magento-2.3.x%20%7C%202.4.x-orange.svg?logo=magento
+[magento-badge]:https://img.shields.io/badge/magento-2.3.x%20%7C%202.4.x-orange.svg?logo=magento&style=for-the-badge
 [page-layouts]:https://devdocs.magento.com/guides/v2.4/frontend-dev-guide/layouts/xml-manage.html#create-cms-pageproductcategory-specific-selectable-layouts
 [example-module]:https://github.com/robaimes/module-checkout-designs-example
 [gpl]:https://www.gnu.org/licenses/gpl-3.0.en.html
