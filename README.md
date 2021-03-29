@@ -1,4 +1,6 @@
-# Aimes_CheckoutDesigns ![magento-badge]
+# Aimes_CheckoutDesigns
+
+![magento-badge]
 
 ## Features
 
