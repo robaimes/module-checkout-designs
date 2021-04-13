@@ -5,6 +5,13 @@
     "license": [
         "GPL-3.0-or-later"
     ],
+    "authors": [
+        {
+            "name": "Rob Aimes",
+            "email": "rob@aimes.dev",
+            "homepage": "https://aimes.dev"
+        }
+    ],
     "require": {
         "magento/module-checkout": "^100.3 || ^100.4"
     },
