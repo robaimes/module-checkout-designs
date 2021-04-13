@@ -48,7 +48,7 @@ class CheckoutDesigns implements OptionSourceInterface
     /**
      * Get CheckoutDesign from provided code
      *
-     * TODO: Find a more efficient (or safer) way to return the item
+     * TODO: Review for a potentially more efficient (or safer) way to return the item
      *
      * @param string $code
      * @return CheckoutDesignInterface|null

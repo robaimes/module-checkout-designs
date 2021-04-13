@@ -11,6 +11,8 @@ use Aimes\CheckoutDesigns\Scope\Config;
 use Magento\Customer\Model\Session as CustomerSession;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
+use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\Exception\NoSuchEntityException;
 
 class CheckoutLoadBefore implements ObserverInterface
 {
@@ -22,6 +24,7 @@ class CheckoutLoadBefore implements ObserverInterface
 
     /**
      * @param Config $config
+     * @param CustomerSession $customerSession
      */
     public function __construct(
         Config $config,
@@ -34,6 +37,8 @@ class CheckoutLoadBefore implements ObserverInterface
     /**
      * @param Observer $observer
      * @return void
+     * @throws LocalizedException
+     * @throws NoSuchEntityException
      */
     public function execute(Observer $observer): void
     {
@@ -51,8 +56,8 @@ class CheckoutLoadBefore implements ObserverInterface
 
     /**
      * @return CheckoutDesignInterface|null
-     * @throws \Magento\Framework\Exception\LocalizedException
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @throws LocalizedException
+     * @throws NoSuchEntityException
      */
     private function getDesign(): ?CheckoutDesignInterface
     {

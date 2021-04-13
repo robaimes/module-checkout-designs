@@ -30,6 +30,7 @@ class Config
     /**
      * @param ScopeConfigInterface $scopeConfig
      * @param CheckoutDesigns $checkoutDesigns
+     * @param SerializerInterface $serializer
      */
     public function __construct(
         ScopeConfigInterface $scopeConfig,
@@ -42,6 +43,7 @@ class Config
     }
 
     /**
+     * @param string|null $code
      * @return CheckoutDesignInterface|null
      */
     public function getDesign(?string $code = null): ?CheckoutDesignInterface

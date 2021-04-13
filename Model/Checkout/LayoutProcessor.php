@@ -15,19 +15,13 @@ class LayoutProcessor implements LayoutProcessorInterface
     /** @var Config */
     private $config;
 
-    /** @var CheckoutDesigns */
-    private $checkoutDesigns;
-
     /**
      * @param Config $config
-     * @param CheckoutDesigns $checkoutDesigns
      */
     public function __construct(
-        Config $config,
-        CheckoutDesigns $checkoutDesigns
+        Config $config
     ) {
         $this->config = $config;
-        $this->checkoutDesigns = $checkoutDesigns;
     }
 
     /**

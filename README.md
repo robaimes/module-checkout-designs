@@ -37,7 +37,7 @@ This module is compatible with Magento 2.3.x and Magento 2.4.x
 
 ## Installation
 
-Please install this module via Composer
+Please install this module via Composer. This module is hosted on [Packagist][packagist].
 
 * `composer require aimes/module-checkout-designs`
 * `bin/magento module:enable Aimes_CheckoutDesigns`
@@ -112,5 +112,6 @@ Your design should now show up as an option in the system configuration below:
 [magento-badge]:https://img.shields.io/badge/magento-2.3.x%20%7C%202.4.x-orange.svg?logo=magento&style=for-the-badge
 [page-layouts]:https://devdocs.magento.com/guides/v2.4/frontend-dev-guide/layouts/xml-manage.html#create-cms-pageproductcategory-specific-selectable-layouts
 [example-module]:https://github.com/robaimes/module-checkout-designs-example
+[packagist]:https://packagist.org/packages/aimes/module-checkout-designs
 [gpl]:https://www.gnu.org/licenses/gpl-3.0.en.html
 [author]:https://aimes.dev/

@@ -48,13 +48,16 @@ class CheckoutDesign implements CheckoutDesignInterface
         $this->configProviders = $configProviders;
     }
 
-    public function getCode()
+    /**
+     * {@inheritdoc}
+     */
+    public function getCode(): string
     {
         return $this->code;
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getName(): string
     {
@@ -62,7 +65,7 @@ class CheckoutDesign implements CheckoutDesignInterface
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getLayoutHandle(): string
     {
@@ -70,7 +73,7 @@ class CheckoutDesign implements CheckoutDesignInterface
     }
 
     /**
-     * @return LayoutProcessorInterface[]
+     * {@inheritdoc}
      */
     public function getLayoutProcessors(): array
     {
@@ -78,7 +81,7 @@ class CheckoutDesign implements CheckoutDesignInterface
     }
 
     /**
-     * @return ConfigProviderInterface[]
+     * {@inheritdoc}
      */
     public function getConfigProviders(): array
     {

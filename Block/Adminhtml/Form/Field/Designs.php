@@ -42,20 +42,20 @@ class Designs extends Select
     }
 
     /**
-     * @param string $value
+     * @param string $inputName
      * @return Designs
      */
-    public function setInputName(string $value): Designs
+    public function setInputName(string $inputName): Designs
     {
-        return $this->setName($value);
+        return $this->setName($inputName);
     }
 
     /**
-     * @param string $value
+     * @param string $inputId
      * @return Designs
      */
-    public function setInputId(string $value): Designs
+    public function setInputId(string $inputId): Designs
     {
-        return $this->setId($value);
+        return $this->setId($inputId);
     }
 }

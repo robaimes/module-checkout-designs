@@ -9,12 +9,11 @@ namespace Aimes\CheckoutDesigns\Block\Adminhtml\Form\Field;
 use Magento\Customer\Api\GroupManagementInterface;
 use Magento\Customer\Api\GroupRepositoryInterface;
 use Magento\Framework\Api\SearchCriteriaBuilder;
+use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\View\Element\Context;
 use Magento\Framework\View\Element\Html\Select;
 
-/**
- * Class Ranges
- */
 class CustomerGroups extends Select
 {
     /** @var array */
@@ -51,6 +50,8 @@ class CustomerGroups extends Select
 
     /**
      * @return array
+     * @throws LocalizedException
+     * @throws NoSuchEntityException
      */
     protected function getCustomerGroups(): array
     {
@@ -70,6 +71,8 @@ class CustomerGroups extends Select
 
     /**
      * @return string
+     * @throws LocalizedException
+     * @throws NoSuchEntityException
      */
     public function _toHtml(): string
     {
@@ -82,20 +85,20 @@ class CustomerGroups extends Select
     }
 
     /**
-     * @param string $value
+     * @param string $inputName
      * @return CustomerGroups
      */
-    public function setInputName(string $value): CustomerGroups
+    public function setInputName(string $inputName): CustomerGroups
     {
-        return $this->setName($value);
+        return $this->setName($inputName);
     }
 
     /**
-     * @param string $value
+     * @param string $inputId
      * @return CustomerGroups
      */
-    public function setInputId(string $value): CustomerGroups
+    public function setInputId(string $inputId): CustomerGroups
     {
-        return $this->setId($value);
+        return $this->setId($inputId);
     }
 }

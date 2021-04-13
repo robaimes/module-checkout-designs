@@ -6,6 +6,8 @@
 
 namespace Aimes\CheckoutDesigns\Api;
 
+use Magento\Checkout\Block\Checkout\LayoutProcessorInterface;
+use Magento\Checkout\Model\ConfigProviderInterface;
 
 interface CheckoutDesignInterface
 {
@@ -31,12 +33,12 @@ interface CheckoutDesignInterface
     public function getLayoutHandle();
 
     /**
-     * @return array
+     * @return LayoutProcessorInterface[]
      */
     public function getLayoutProcessors();
 
     /**
-     * @return array
+     * @return ConfigProviderInterface[]
      */
     public function getConfigProviders();
 }
