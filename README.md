@@ -1,6 +1,9 @@
 # Aimes_CheckoutDesigns
 
-!["Supported Magento Version"][magento-badge]
+!["Supported Magento Version"][magento-badge] !["Latest Release"][release-badge]
+
+* Compatible with _Magento Open Source_ and _Adobe Commerce_ `2.3.x` & `2.4.x`
+* Compatible with _[Hyvä Themes][hyva]_ using the _Luma Checkout Fallback_
 
 ## Features
 
@@ -110,8 +113,10 @@ Your design should now show up as an option in the system configuration below:
 [GPLv3][gpl] © [Rob Aimes][author]
 
 [magento-badge]:https://img.shields.io/badge/magento-2.3.x%20%7C%202.4.x-orange.svg?logo=magento&style=for-the-badge
+[release-badge]:https://img.shields.io/github/v/release/robaimes/module-checkout-designs?sort=semver&style=for-the-badge&color=blue
 [page-layouts]:https://devdocs.magento.com/guides/v2.4/frontend-dev-guide/layouts/xml-manage.html#create-cms-pageproductcategory-specific-selectable-layouts
 [example-module]:https://github.com/robaimes/module-checkout-designs-example
 [packagist]:https://packagist.org/packages/aimes/module-checkout-designs
 [gpl]:https://www.gnu.org/licenses/gpl-3.0.en.html
 [author]:https://aimes.dev/
+[hyva]:https://hyva.io/
