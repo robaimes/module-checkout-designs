@@ -20,25 +20,25 @@ interface CheckoutDesignInterface
     /**
      * @return string
      */
-    public function getCode();
+    public function getCode(): string;
 
     /**
      * @return string
      */
-    public function getName();
+    public function getName(): string;
 
     /**
      * @return string
      */
-    public function getLayoutHandle();
+    public function getLayoutHandle(): string;
 
     /**
      * @return LayoutProcessorInterface[]
      */
-    public function getLayoutProcessors();
+    public function getLayoutProcessors(): array;
 
     /**
      * @return ConfigProviderInterface[]
      */
-    public function getConfigProviders();
+    public function getConfigProviders(): array;
 }

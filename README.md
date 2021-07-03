@@ -7,8 +7,6 @@
 
 ## Features
 
-> Please note: This module is currently still considered a proof of concept.
-
 This module provides the ability to change checkout page designs/layout similar to [page specific selectable layouts][page-layouts].
 
 The module currently provides the following functionality:
@@ -17,14 +15,14 @@ The module currently provides the following functionality:
 * Provide a different checkout user experience per customer group
 
 <details>
-  <summary>Example</summary>
+  <summary>Example Config</summary>
    
   ![Example Config](https://user-images.githubusercontent.com/4225347/112895353-ec7ccb00-90d4-11eb-937f-cd54636fbf19.png)
 </details>
 
 This in turn will allow you to do things such as, but not limited to, the following:
 
-> Please note: These are only examples of functionality that this module makes possible. This module itself does not provide any additional functionality or checkout designs and serves only as a base for other modules. For an example module, please see [`Aimes_CheckoutDesigns`][example-module]
+> Please note: These are only examples of functionality that this module makes possible. This module itself does not provide any additional functionality and serves only as a base for other modules. For example usage, please see [`Aimes_CheckoutDesigns`][example-module].
 
 * AB Testing any checkout changes
 * Something broken or users can't checkout with a specific design? Select a different design or the default Magento checkout so that users can still checkout until you can deploy your fixed code.
@@ -36,7 +34,7 @@ Any feature requests and/or pull requests are welcomed!
 
 ## Requirements
 
-This module is compatible with Magento 2.3.x and Magento 2.4.x
+* Magento Open Source or Adobe Commerce version `2.3.x` or `2.4.x`
 
 ## Installation
 
@@ -47,8 +45,6 @@ Please install this module via Composer. This module is hosted on [Packagist][pa
 * `bin/magento setup:upgrade`
 
 ## Usage
-
-> All of this is subject to (and very likely to!) change.
 
 ### Step 1: Define new checkout layout
 `di.xml`
@@ -76,18 +72,19 @@ Please install this module via Composer. This module is hosted on [Packagist][pa
 #### Explanation
 
 * Designs must implement `\Aimes\CheckoutDesigns\Api\CheckoutDesignInterface` 
-    * `code` is a unique identifier for your design
-    * `name` is the frontend / human friendly label
-    * `layoutHandle` is the layout handle that will be included on the page. The above would include `my_design_layout_handle.xml`
+    * `code` is a unique string identifier for your design
+    * `name` is a string to represnt the frontend / human friendly label
+    * `layoutHandle` is a string to represent the layout handle that will be processed when the design is in use. The above would include `my_design_layout_handle.xml`
     * `layoutProcessors` is an array of objects that will only be processed when the associated design is utilised
         * Items must implement `\Magento\Checkout\Block\Checkout\LayoutProcessorInterface`
     * `configProviders` is an array of objects that will only be processed when the associated design is utilised
         * Items must implement `\Magento\Checkout\Model\ConfigProviderInterface`
     
 #### Example code
-For working code examples, please refer to [`Aimes_CheckoutDesigns`][example-module]. This package can also be installed.
+For working code examples, please refer to [`Aimes_CheckoutDesignsExample`][example-module]. This package can also be installed.
     
 ### Step 2: Add your design to the available options
+
 `di.xml`
 ```xml
 <type name="Aimes\CheckoutDesigns\Model\Config\Source\CheckoutDesigns">
