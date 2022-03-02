@@ -6,9 +6,8 @@
 
 namespace Aimes\CheckoutDesigns\Observer;
 
-use Aimes\CheckoutDesigns\Api\CheckoutDesignInterface;
 use Aimes\CheckoutDesigns\Scope\Config;
-use Magento\Customer\Model\Session as CustomerSession;
+use Aimes\CheckoutDesigns\Scope\Customer;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\Exception\LocalizedException;
@@ -19,19 +18,19 @@ class CheckoutLoadBefore implements ObserverInterface
     /** @var Config */
     private $config;
 
-    /** @var CustomerSession */
-    private $customerSession;
+    /** @var Customer */
+    private $customer;
 
     /**
      * @param Config $config
-     * @param CustomerSession $customerSession
+     * @param Customer $customer
      */
     public function __construct(
         Config $config,
-        CustomerSession $customerSession
+        Customer $customer
     ) {
         $this->config = $config;
-        $this->customerSession = $customerSession;
+        $this->customer = $customer;
     }
 
     /**
@@ -45,32 +44,12 @@ class CheckoutLoadBefore implements ObserverInterface
         $route = $observer->getEvent()->getFullActionName();
 
         if ($route === 'checkout_index_index') {
-            if ($design = $this->getDesign()) {
+            if ($design = $this->customer->getActiveDesign()) {
                 $observer->getEvent()
                     ->getLayout()
                     ->getUpdate()
                     ->addHandle($design->getLayoutHandle());
             }
         }
-    }
-
-    /**
-     * @return CheckoutDesignInterface|null
-     * @throws LocalizedException
-     * @throws NoSuchEntityException
-     */
-    private function getDesign(): ?CheckoutDesignInterface
-    {
-        $groupMapping = $this->config->getCustomerGroupMapping();
-
-        if ($groupMapping !== null) {
-            $currentCustomerGroup = $this->customerSession->getCustomerGroupId();
-
-            if (isset($groupMapping[$currentCustomerGroup])) {
-                return $this->config->getDesign($groupMapping[$currentCustomerGroup]);
-            }
-        }
-
-        return $this->config->getDesign();
     }
 }
