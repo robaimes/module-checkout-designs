@@ -22,7 +22,7 @@ The module currently provides the following functionality:
 
 This in turn will allow you to do things such as, but not limited to, the following:
 
-> Please note: These are only examples of functionality that this module makes possible. This module itself does not provide any additional functionality and serves only as a base for other modules. For example usage, please see [`Aimes_CheckoutDesigns`][example-module].
+> Please note: These are only examples of functionality that this module makes possible. This module itself does not provide any additional functionality and serves only as a base for other modules. For example usage, please see [`Aimes_CheckoutDesignsExample`][example-module].
 
 * AB Testing any checkout changes
 * Something broken or users can't checkout with a specific design? Select a different design or the default Magento checkout so that users can still checkout until you can deploy your fixed code.
