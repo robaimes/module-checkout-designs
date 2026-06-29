@@ -7,6 +7,7 @@
 namespace Aimes\CheckoutDesigns\Scope;
 
 use Aimes\CheckoutDesigns\Api\CheckoutDesignInterface;
+use Aimes\CheckoutDesigns\Model\CheckoutDesign;
 use Aimes\CheckoutDesigns\Model\Config\Source\CheckoutDesigns;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Serialize\SerializerInterface;
@@ -14,18 +15,18 @@ use Magento\Store\Model\ScopeInterface;
 
 class Config
 {
-    const XML_PATH_CHECKOUT_DESIGN = 'checkout/design/design';
-    const XML_PATH_CUSTOMER_GROUP_DESIGN_MAPPING_ENABLED = 'checkout/design/enable_customer_groups';
-    const XML_PATH_CUSTOMER_GROUP_DESIGN_MAPPING = 'checkout/design/customer_group_mapping';
+    private const XML_PATH_CHECKOUT_DESIGN = 'checkout/design/design';
+    private const XML_PATH_CUSTOMER_GROUP_DESIGN_MAPPING_ENABLED = 'checkout/design/enable_customer_groups';
+    private const XML_PATH_CUSTOMER_GROUP_DESIGN_MAPPING = 'checkout/design/customer_group_mapping';
 
     /** @var ScopeConfigInterface */
-    private $scopeConfig;
+    private ScopeConfigInterface $scopeConfig;
 
     /** @var CheckoutDesigns */
-    private $checkoutDesigns;
+    private CheckoutDesigns $checkoutDesigns;
 
     /** @var SerializerInterface */
-    private $serializer;
+    private SerializerInterface $serializer;
 
     /**
      * @param ScopeConfigInterface $scopeConfig
@@ -35,7 +36,7 @@ class Config
     public function __construct(
         ScopeConfigInterface $scopeConfig,
         CheckoutDesigns $checkoutDesigns,
-        SerializerInterface $serializer
+        SerializerInterface $serializer,
     ) {
         $this->scopeConfig = $scopeConfig;
         $this->checkoutDesigns = $checkoutDesigns;
@@ -96,6 +97,7 @@ class Config
         $groupMapping = [];
         $mapping = $this->serializer->unserialize($serializedMapping);
 
+        /** @var array $mapping */
         foreach ($mapping as $item) {
             $groupMapping[$item['customer_group']] = $item['design'];
         }

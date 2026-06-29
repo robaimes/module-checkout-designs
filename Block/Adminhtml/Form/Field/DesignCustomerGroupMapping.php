@@ -12,11 +12,11 @@ use Magento\Framework\Exception\LocalizedException;
 
 class DesignCustomerGroupMapping extends AbstractFieldArray
 {
-    /** @var CustomerGroups */
-    private $customerGroupRenderer;
+    /** @var CustomerGroups|null */
+    private ?CustomerGroups $customerGroupRenderer;
 
-    /** @var Designs */
-    private $designRenderer;
+    /** @var Designs|null */
+    private ?Designs $designRenderer;
 
     /**
      * @throws LocalizedException
@@ -68,7 +68,8 @@ class DesignCustomerGroupMapping extends AbstractFieldArray
     private function getCustomerGroupRenderer(): CustomerGroups
     {
         if (!$this->customerGroupRenderer) {
-            $this->customerGroupRenderer = $this->getLayout()->createBlock(
+            /** @var CustomerGroups $block */
+            $block = $this->getLayout()->createBlock(
                 CustomerGroups::class,
                 '',
                 [
@@ -78,6 +79,8 @@ class DesignCustomerGroupMapping extends AbstractFieldArray
                     ]
                 ]
             );
+
+            $this->customerGroupRenderer = $block;
         }
 
         return $this->customerGroupRenderer;
@@ -90,7 +93,8 @@ class DesignCustomerGroupMapping extends AbstractFieldArray
     private function getDesignRenderer(): Designs
     {
         if (!$this->designRenderer) {
-            $this->designRenderer = $this->getLayout()->createBlock(
+            /** @var Designs $block */
+            $block = $this->getLayout()->createBlock(
                 Designs::class,
                 '',
                 [
@@ -100,6 +104,8 @@ class DesignCustomerGroupMapping extends AbstractFieldArray
                     ]
                 ]
             );
+
+            $this->designRenderer = $block;
         }
 
         return $this->designRenderer;

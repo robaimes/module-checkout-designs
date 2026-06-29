@@ -78,6 +78,7 @@ class CustomerGroups extends Select
     {
         if (!$this->getOptions()) {
             foreach ($this->getCustomerGroups() as $groupId => $groupLabel) {
+                // phpcs:ignore Magento2.Functions.DiscouragedFunction.Discouraged
                 $this->addOption($groupId, addslashes($groupLabel));
             }
         }

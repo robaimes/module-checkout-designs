@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © Rob Aimes - https://aimes.dev/
  * https://github.com/robaimes
@@ -6,7 +7,6 @@
 
 namespace Aimes\CheckoutDesigns\Observer;
 
-use Aimes\CheckoutDesigns\Scope\Config;
 use Aimes\CheckoutDesigns\Scope\Customer;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
@@ -15,21 +15,15 @@ use Magento\Framework\Exception\NoSuchEntityException;
 
 class CheckoutLoadBefore implements ObserverInterface
 {
-    /** @var Config */
-    private $config;
-
     /** @var Customer */
-    private $customer;
+    private Customer $customer;
 
     /**
-     * @param Config $config
      * @param Customer $customer
      */
     public function __construct(
-        Config $config,
         Customer $customer
     ) {
-        $this->config = $config;
         $this->customer = $customer;
     }
 

@@ -6,6 +6,8 @@
 
 namespace Aimes\CheckoutDesigns\Api;
 
+// phpcs:disable PSR12.Properties.ConstantVisibility.NotFound
+
 use Magento\Checkout\Block\Checkout\LayoutProcessorInterface;
 use Magento\Checkout\Model\ConfigProviderInterface;
 

@@ -27,6 +27,7 @@ class LayoutProcessor implements LayoutProcessorInterface
     /**
      * {@inheritdoc}
      */
+    // phpcs:ignore Magento2.Annotation.MethodArguments.InheritDoc
     public function process($jsLayout): array
     {
         $design = $this->config->getDesign();

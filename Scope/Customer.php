@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © Rob Aimes - https://aimes.dev/
  * https://github.com/robaimes
@@ -7,16 +8,16 @@
 namespace Aimes\CheckoutDesigns\Scope;
 
 use Aimes\CheckoutDesigns\Api\CheckoutDesignInterface;
-use Aimes\CheckoutDesigns\Model\Config\Source\CheckoutDesigns;
 use Magento\Customer\Model\Session as CustomerSession;
+use Throwable;
 
 class Customer
 {
     /** @var Config */
-    private $config;
+    private Config $config;
 
     /** @var CustomerSession */
-    private $customerSession;
+    private CustomerSession $customerSession;
 
     /**
      * @param Config $config
@@ -32,19 +33,21 @@ class Customer
 
     /**
      * @return CheckoutDesignInterface|null
-     * @throws LocalizedException
-     * @throws NoSuchEntityException
      */
     public function getActiveDesign(): ?CheckoutDesignInterface
     {
         $groupMapping = $this->config->getCustomerGroupMapping();
 
-        if ($groupMapping !== null) {
-            $currentCustomerGroup = $this->customerSession->getCustomerGroupId();
+        try {
+            if ($groupMapping !== null) {
+                $currentCustomerGroup = $this->customerSession->getCustomerGroupId();
 
-            if (isset($groupMapping[$currentCustomerGroup])) {
-                return $this->config->getDesign($groupMapping[$currentCustomerGroup]);
+                if (isset($groupMapping[$currentCustomerGroup])) {
+                    return $this->config->getDesign($groupMapping[$currentCustomerGroup]);
+                }
             }
+        } catch (Throwable) {
+            return $this->config->getDesign();
         }
 
         return $this->config->getDesign();
