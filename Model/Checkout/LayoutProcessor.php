@@ -7,21 +7,21 @@
 namespace Aimes\CheckoutDesigns\Model\Checkout;
 
 use Aimes\CheckoutDesigns\Model\Config\Source\CheckoutDesigns;
-use Aimes\CheckoutDesigns\Scope\Config;
+use Aimes\CheckoutDesigns\Scope\Customer;
 use Magento\Checkout\Block\Checkout\LayoutProcessorInterface;
 
 class LayoutProcessor implements LayoutProcessorInterface
 {
-    /** @var Config */
-    private $config;
+    /** @var Customer */
+    private $customer;
 
     /**
-     * @param Config $config
+     * @param Customer $customer
      */
     public function __construct(
-        Config $config
+        Customer $customer
     ) {
-        $this->config = $config;
+        $this->customer = $customer;
     }
 
     /**
@@ -30,7 +30,7 @@ class LayoutProcessor implements LayoutProcessorInterface
     // phpcs:ignore Magento2.Annotation.MethodArguments.InheritDoc
     public function process($jsLayout): array
     {
-        $design = $this->config->getDesign();
+        $design = $this->customer->getActiveDesign();
 
         if ($design) {
             foreach ($design->getLayoutProcessors() as $layoutProcessor) {
