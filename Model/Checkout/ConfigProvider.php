@@ -7,21 +7,21 @@
 namespace Aimes\CheckoutDesigns\Model\Checkout;
 
 use Aimes\CheckoutDesigns\Model\Config\Source\CheckoutDesigns;
-use Aimes\CheckoutDesigns\Scope\Config;
+use Aimes\CheckoutDesigns\Scope\Customer;
 use Magento\Checkout\Model\ConfigProviderInterface;
 
 class ConfigProvider implements ConfigProviderInterface
 {
-    /** @var Config  */
-    private $config;
+    /** @var Customer */
+    private $customer;
 
     /**
-     * @param Config $config
+     * @param Customer $customer
      */
     public function __construct(
-        Config $config
+        Customer $customer
     ) {
-        $this->config = $config;
+        $this->customer = $customer;
     }
 
     /**
@@ -30,7 +30,7 @@ class ConfigProvider implements ConfigProviderInterface
     public function getConfig(): array
     {
         $config = [];
-        $design = $this->config->getDesign();
+        $design = $this->customer->getActiveDesign();
 
         if ($design) {
             foreach ($design->getConfigProviders() as $configProvider) {
